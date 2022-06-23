@@ -1,0 +1,8 @@
+# This config file holds the data required to communicate with the service on which 
+# thePorter service is going to store the data.
+# This file is for redis storage.
+Database:
+  Addr: "localhost:6379"
+  Password: ""
+  DB: 0
+
