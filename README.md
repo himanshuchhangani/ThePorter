@@ -18,5 +18,4 @@ A Golang based PortDomainService service that either creates a new record in a d
 - add docker compose file for automatic container orchestration.
 - add makefile to automate the binary building process.
 - daemonize the binary, so that it keeps waiting at a path for file, as soon as file is uploaded, it will update the database.
--
 
