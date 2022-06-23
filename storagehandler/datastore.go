@@ -11,6 +11,7 @@ type DataStore struct {
 	Client *redis.Client
 }
 
+// Save method stores the passed Port data in for the presented key.
 func (d *DataStore) Save(key string, portData *models.Port) error {
 	p, err := json.Marshal(portData)
 	if err != nil {
@@ -20,6 +21,7 @@ func (d *DataStore) Save(key string, portData *models.Port) error {
 	return nil
 }
 
+// Get method retrieves the stored data corresponding to the passed key.
 func (d *DataStore) Get(key string) (*models.Port, error) {
 	var p models.Port
 	pd, err := d.Client.Get(key).Result()

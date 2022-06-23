@@ -8,11 +8,14 @@ import (
 	"github.com/himanshuchhangani/theporter/models"
 )
 
+// Processor struct holds the file processor object, this is used to parse the given file and store
+// relevant data in the configured storage.
 type Processor struct {
 	DecoderEngine *json.Decoder
 	StorageEngine interfaces.StorageHandler
 }
 
+// Process method is used to process the json file and store relevant info in the storage.
 func (p *Processor) Process() error {
 
 	// read open bracket
@@ -24,6 +27,7 @@ func (p *Processor) Process() error {
 	for p.DecoderEngine.More() {
 		var portData map[string]models.Port
 		if err := p.DecoderEngine.Decode(&portData); err != nil {
+
 			log.Fatal("error parsing json " + err.Error())
 		}
 		for key, value := range portData {
